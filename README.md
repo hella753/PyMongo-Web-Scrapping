@@ -41,17 +41,17 @@ coming soon
 - [x] category, 
 - [x] subcategory,
 - [x] image,
-- [x] description,
-- [x] author,
-- [x] portions,
-- [x] ingredients,
-- [x] preparation steps.
+- [ ] description,
+- [ ] author,
+- [ ] portions,
+- [ ] ingredients,
+- [ ] preparation steps.
 
 **Database Tasks:**
-- [x] Average of the number of ingredients in all recipes.
-- [x] Average of the number of preparation steps in all recipes.
-- [x] Maximum number of portions of a recipe. (recipe title, recipe url)
-- [x] Author with the most recipes. 
+- [ ] Average of the number of ingredients in all recipes.
+- [ ] Average of the number of preparation steps in all recipes.
+- [ ] Maximum number of portions of a recipe. (recipe title, recipe url)
+- [ ] Author with the most recipes. 
 
 
 ## Usage
