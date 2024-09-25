@@ -2,7 +2,7 @@
 
 ## Description
 This project uses BeautifulSoup web scraping to extract data from a culinary website and then stores it in a
-MongoDB database using PyMongo. The data is a list of georgian cuisine recipes with their information. The data
+MongoDB database using PyMongo. The data is a list of georgian cuisine recipes with their information. It
 is easily accessible and can be used for further analysis. <br>
 
 Database name: `georgian_cuisine` <br>
@@ -36,22 +36,22 @@ coming soon
 
 ### Provided Tasks
 **Web-Scraping Tasks:**
-- [x] Extract the recipe title,
-- [x] Extract the recipe link,
-- [x] category, 
-- [x] subcategory,
-- [x] image,
-- [ ] description,
-- [ ] author,
-- [ ] portions,
-- [ ] ingredients,
-- [ ] preparation steps.
+- [x] Extract the recipe title
+- [x] Extract the recipe link
+- [x] Extract the category
+- [x] Extract the subcategory
+- [x] Extract the image
+- [ ] Extract the description
+- [ ] Extract the author
+- [ ] Extract the portions
+- [ ] Extract the ingredients
+- [ ] Extract the preparation steps
 
 **Database Tasks:**
-- [ ] Average of the number of ingredients in all recipes.
-- [ ] Average of the number of preparation steps in all recipes.
-- [ ] Maximum number of portions of a recipe. (recipe title, recipe url)
-- [ ] Author with the most recipes. 
+- [ ] Print average of the number of ingredients in all recipes
+- [ ] Print average of the number of preparation steps in all recipes
+- [ ] Print maximum number of portions of a recipe. (recipe title, recipe url)
+- [ ] Print author with the most recipes
 
 
 ## Usage
@@ -61,7 +61,7 @@ python main.py
 ```
 
 ## Dependencies
-* **Python 3.X**
+* **Python 3.x**
 * **PyMongo**: Python distribution containing tools for working with MongoDB.
 * **BeautifulSoup**: Python library for pulling data out of HTML and XML files.
 * **AIOHTTP**: Asynchronous HTTP Client/Server for asyncio and Python.

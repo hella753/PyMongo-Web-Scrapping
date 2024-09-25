@@ -1,25 +1,22 @@
 import asyncio
+import time
 from data_fetcher import DataFetcher
-from tasks import Tasks
-
+from scraper import Scraper
+from database import Database
 
 url = """https://kulinaria.ge/receptebi/cat/karTuli-samzareulo/"""
+start = time.perf_counter()
 
-def main():
+
+async def main():
     fetcher = DataFetcher()
-
-    tasks = Tasks(fetcher.fetch_data(url))
-
-    asyncio.run(tasks.get_recipe_info())
-
-    tasks.get_recipes()
+    html = fetcher.fetch_data(url)
+    scraper = Scraper(html, fetcher)
+    await scraper.get_recipe_info()
+    scraper.get_recipes()
 
 
 if __name__ == "__main__":
-    main()
-
-
-
-
-
-
+    asyncio.run(main())
+    finish = time.perf_counter()
+    print(f"Finished in {round(finish-start, 2)} second(s)")
