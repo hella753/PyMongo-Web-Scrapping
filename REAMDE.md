@@ -26,10 +26,11 @@ Document structure: <br>
 
 ## Components
 * **Database**: Handles the MongoDB database operations like initializing database, inserting and retrieving data. 
-* **DataFetcher**: Handles usual and asynchronous data fetching from the website .
+* **DataFetcher**: Handles usual and asynchronous data fetching from the website.
 * **Recipe**: Recipe Object to store the recipe information.
 * **Scraper**: Handles the web scraping operations with bs4.
-* 
+
+
 ## **Features** ##
 coming soon
 
