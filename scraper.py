@@ -123,7 +123,7 @@ class Scraper:
                     'div', {'class': 'lineList__item'}
                 )
             )
-            preparation_steps = []
+            preparation_steps = {}
             for preparation_element in preparation_elements:
                 preparation_step_count = (
                     preparation_element
@@ -133,9 +133,13 @@ class Scraper:
                     .text.strip()
                 )
                 preparation_element_text = (
-                    f'ნაბიჯი {preparation_step_count} - '
-                    f'{preparation_element.find("p").text.strip()}')
-                preparation_steps.append(preparation_element_text)
+                    f'{preparation_element.find("p").text.strip()}'
+                    .replace("\n", " ")
+                    .replace("\r", "")
+                )
+                preparation_steps[
+                    preparation_step_count
+                ] = preparation_element_text
 
             recipe = Recipe(
                 title,

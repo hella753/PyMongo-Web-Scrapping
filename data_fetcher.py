@@ -41,7 +41,8 @@ class DataFetcher:
         """
         Fetches data from multiple websites concurrently using aiohttp.
 
-        :param urls: List[str]: List of URLs of the websites to fetch data from
+        :param urls: List[str]: List of URLs of the websites
+        to fetch data from
         :return: List[str]: List of responses from the websites
         """
         async with self.semaphore:

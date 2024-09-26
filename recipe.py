@@ -15,7 +15,7 @@ class Recipe:
         author: str,
         portions: int,
         ingredients: list,
-        preparation_steps: list,
+        preparation_steps: dict,
     ) -> None:
         """
         Initializes a Recipe instance.
@@ -36,7 +36,7 @@ class Recipe:
         self.author: str = author
         self.portions: int = portions
         self.ingredients: list = ingredients
-        self.preparation_steps: list = preparation_steps
+        self.preparation_steps: dict = preparation_steps
 
 
     def to_dict(self) -> dict:
