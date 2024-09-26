@@ -88,7 +88,7 @@ class Scraper:
                 description_result = "აღწერის გარეშე"
 
             author = self.soup_recipe.find('div', {'class': 'post__author'})
-            author_result = author.text.strip()
+            author_result = author.text.strip().replace('ავტორი:  ', '')
 
             portion = (
                 self.soup_recipe
@@ -145,8 +145,8 @@ class Scraper:
                 image_link,
                 description_result,
                 author_result,
-                ingredients,
                 int_portion,
+                ingredients,
                 preparation_steps
             )
 

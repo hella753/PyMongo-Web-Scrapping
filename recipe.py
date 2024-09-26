@@ -11,10 +11,10 @@ class Recipe:
         category: dict,
         subcategory: dict,
         image_link: str,
-        author: str,
         description: str,
-        ingredients: list,
+        author: str,
         portions: int,
+        ingredients: list,
         preparation_steps: list,
     ) -> None:
         """
