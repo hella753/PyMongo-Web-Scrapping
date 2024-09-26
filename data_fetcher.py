@@ -1,6 +1,8 @@
 import aiohttp
 import requests
 import asyncio
+import ssl
+import certifi
 from typing import List
 
 
@@ -10,6 +12,7 @@ class DataFetcher:
     aiohttp. It uses a semaphore to limit the number of concurrent
     requests to the website.
     """
+
     def __init__(self) -> None:
         self.urls: List[str] = []
         self.semaphore: asyncio.Semaphore = asyncio.Semaphore(5)
@@ -34,7 +37,8 @@ class DataFetcher:
         :param url: str: URL of the website to fetch data from
         :return: str: response from the website
         """
-        async with session.get(url) as response:
+        ssl_context = ssl.create_default_context(cafile=certifi.where())
+        async with session.get(url, ssl=ssl_context) as response:
             return await response.text()
 
     async def fetch_async_all(self, urls: List[str]) -> List[str]:
