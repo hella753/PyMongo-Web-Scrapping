@@ -2,6 +2,7 @@ import asyncio
 import time
 from data_fetcher import DataFetcher
 from scraper import Scraper
+from database.list_to_json import recipes_to_json
 
 url = """https://kulinaria.ge/receptebi/cat/karTuli-samzareulo/"""
 start = time.perf_counter()
@@ -12,7 +13,9 @@ async def main():
     html = fetcher.fetch_data(url)
     scraper = Scraper(html, fetcher)
     await scraper.get_recipe_info()
-    scraper.get_recipes()
+    data = scraper.get_recipes()
+    json_data = recipes_to_json(data)
+    print(json_data)
 
 
 if __name__ == "__main__":
