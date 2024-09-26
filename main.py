@@ -2,7 +2,6 @@ import asyncio
 import time
 from data_fetcher import DataFetcher
 from scraper import Scraper
-from database import Database
 
 url = """https://kulinaria.ge/receptebi/cat/karTuli-samzareulo/"""
 start = time.perf_counter()
