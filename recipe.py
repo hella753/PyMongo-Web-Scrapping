@@ -27,15 +27,15 @@ class Recipe:
         :param subcategory: dict: The subcategory of the recipe.
         :param image_link: str: The URL link to the recipe's image.
         """
-        self.image_link: str = image_link
         self.recipe_title: str = recipe_title
         self.recipe_link: str = recipe_link
         self.category: dict = category
         self.subcategory: dict = subcategory
-        self.ingredients: list = ingredients
-        self.portions: int = portions
-        self.author: str = author
+        self.image_link: str = image_link
         self.description: str = description
+        self.author: str = author
+        self.portions: int = portions
+        self.ingredients: list = ingredients
         self.preparation_steps: list = preparation_steps
 
 
@@ -51,10 +51,10 @@ class Recipe:
             "category": self.category,
             "subcategory": self.subcategory,
             "image": self.image_link,
-            "author": self.author,
             "description": self.description,
-            "ingredients": self.ingredients,
+            "author": self.author,
             "portions": self.portions,
+            "ingredients": self.ingredients,
             "preparation Steps": self.preparation_steps,
         }
 
@@ -71,9 +71,9 @@ class Recipe:
             f"Category={self.category}, "
             f"Subcategory={self.subcategory}, "
             f"Image={self.image_link}, "
-            f"Author={self.author}, "
             f"Description={self.description}, "
-            f"Ingredients={self.ingredients}, "
+            f"Author={self.author}, "
             f"Portions={self.portions}, "
+            f"Ingredients={self.ingredients}, "
             f"Preparation Steps={self.preparation_steps}"
         )
