@@ -77,12 +77,77 @@ class Scraper:
             image_url = self.full_link_display(image_url_part)
             image_link = image_url
 
+            description = (
+                self.soup_recipe
+                .find(
+                    'div', {'class': 'post__description'}
+                )
+            )
+            description_result = description.text.strip()
+            if len(description_result) == 0:
+                description_result = "აღწერის გარეშე"
+
+            author = self.soup_recipe.find('div', {'class': 'post__author'})
+            author_result = author.text.strip()
+
+            portion = (
+                self.soup_recipe
+                .find('div', {'class': 'lineDesc'})
+                .findChild('div', {'class': 'lineDesc__item'})
+                .find_next_sibling()
+                .text.strip()
+            )
+            try:
+                int_portion = int(portion.split()[0])
+            except ValueError:
+                int_portion = 1
+
+            ingredient_elements = self.soup_recipe.findAll(
+                'div', {'class': 'list__item'}
+            )
+            ingredients = []
+            for ingredient in ingredient_elements:
+                text = (
+                    ingredient.text
+                    .replace('\xa0', '')
+                    .replace('\n', '')
+                    .strip()
+                )
+                cleaned_text = " ".join(text.split())
+                ingredients.append(cleaned_text)
+
+            preparation = self.soup_recipe.find('div', {'class': 'lineList'})
+            preparation_elements = (
+                preparation
+                .findAll(
+                    'div', {'class': 'lineList__item'}
+                )
+            )
+            preparation_steps = []
+            for preparation_element in preparation_elements:
+                preparation_step_count = (
+                    preparation_element
+                    .find(
+                        'div', {'class': 'count'}
+                    )
+                    .text.strip()
+                )
+                preparation_element_text = (
+                    f'ნაბიჯი {preparation_step_count} - '
+                    f'{preparation_element.find("p").text.strip()}')
+                preparation_steps.append(preparation_element_text)
+
             recipe = Recipe(
                 title,
                 recipe_url,
                 category_dict,
                 subcategory_dict,
-                image_link
+                image_link,
+                description_result,
+                author_result,
+                ingredients,
+                int_portion,
+                preparation_steps
             )
 
             self.recipes.append(recipe.to_dict())

@@ -10,7 +10,12 @@ class Recipe:
         recipe_link: str,
         category: dict,
         subcategory: dict,
-        image_link: str
+        image_link: str,
+        author: str,
+        description: str,
+        ingredients: list,
+        portions: int,
+        preparation_steps: list,
     ) -> None:
         """
         Initializes a Recipe instance.
@@ -27,6 +32,12 @@ class Recipe:
         self.recipe_link: str = recipe_link
         self.category: dict = category
         self.subcategory: dict = subcategory
+        self.ingredients: list = ingredients
+        self.portions: int = portions
+        self.author: str = author
+        self.description: str = description
+        self.preparation_steps: list = preparation_steps
+
 
     def to_dict(self) -> dict:
         """
@@ -35,11 +46,16 @@ class Recipe:
         :return: dict: A dictionary containing the recipe information.
         """
         return {
-            "Title": self.recipe_title,
-            "Link": self.recipe_link,
-            "Category": self.category,
-            "Subcategory": self.subcategory,
-            "Image": self.image_link,
+            "title": self.recipe_title,
+            "link": self.recipe_link,
+            "category": self.category,
+            "subcategory": self.subcategory,
+            "image": self.image_link,
+            "author": self.author,
+            "description": self.description,
+            "ingredients": self.ingredients,
+            "portions": self.portions,
+            "preparation Steps": self.preparation_steps,
         }
 
     def __repr__(self) -> str:
@@ -50,7 +66,14 @@ class Recipe:
         of the recipe object.
         """
         return (
-            f"Recipe(Title='{self.recipe_title}', Link={self.recipe_link}, "
-            f" Category={self.category}, Subcategory={self.subcategory}, "
+            f"Recipe(Title='{self.recipe_title}', "
+            f"Link={self.recipe_link}, "
+            f"Category={self.category}, "
+            f"Subcategory={self.subcategory}, "
             f"Image={self.image_link}, "
+            f"Author={self.author}, "
+            f"Description={self.description}, "
+            f"Ingredients={self.ingredients}, "
+            f"Portions={self.portions}, "
+            f"Preparation Steps={self.preparation_steps}"
         )
