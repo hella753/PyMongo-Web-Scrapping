@@ -38,7 +38,6 @@ class Recipe:
         self.ingredients: list = ingredients
         self.preparation_steps: dict = preparation_steps
 
-
     def to_dict(self) -> dict:
         """
         Converts the Recipe instance into a dictionary format.
@@ -66,7 +65,7 @@ class Recipe:
         of the recipe object.
         """
         return (
-            f"Recipe(Title='{self.recipe_title}', "
+            f"Recipe(Title='{self.recipe_title}, "
             f"Link={self.recipe_link}, "
             f"Category={self.category}, "
             f"Subcategory={self.subcategory}, "
@@ -75,5 +74,5 @@ class Recipe:
             f"Author={self.author}, "
             f"Portions={self.portions}, "
             f"Ingredients={self.ingredients}, "
-            f"Preparation Steps={self.preparation_steps}"
+            f"Preparation Steps={self.preparation_steps})"
         )
