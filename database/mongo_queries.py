@@ -3,7 +3,7 @@ from pymongo import errors
 
 
 class RecipeQueries(MongoDB):
-    def __init__(self, uri="mongodb://localhost:27017/", database_name="mydatabase"):
+    def __init__(self, uri="mongodb://localhost:27017/", database_name="georgian_cuisine"):
         super().__init__(uri, database_name)
 
     def avg_ingredients(self, collection_name="recipies"):

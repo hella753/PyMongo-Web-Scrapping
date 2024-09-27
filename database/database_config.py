@@ -2,7 +2,7 @@ from pymongo import MongoClient, errors
 
 
 class MongoDB:
-    def __init__(self, uri="mongodb://localhost:27017/", database_name="mydatabase"):
+    def __init__(self, uri="mongodb://localhost:27017/", database_name="georgian_cuisine"):
         """
         Initializes the MongoDB connection and defines the database to use.
 
