@@ -218,7 +218,7 @@ class Scraper:
             )
 
             self.recipes.append(recipe.to_dict())
-            print(recipe)
+            # print(recipe)
 
     def get_recipes(self) -> List:
         """
