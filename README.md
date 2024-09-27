@@ -5,7 +5,7 @@ This project uses BeautifulSoup for web scraping to extract data from a culinary
 MongoDB database using PyMongo. The data is a list of georgian cuisine recipes with their information. It
 is easily accessible and can be used for further analysis. <br>
 
-Database name: `mydatabase` <br>
+Database name: `georgian_cuisine` <br>
 Collection name: `recipies` <br>
 Document structure: <br>
 ```
@@ -13,14 +13,14 @@ Document structure: <br>
     "_id": id,
     "title": "recipe title",
     "link": "recipe url",
-    "category": "category",
-    "subcategory": "subcategory",
+    "category": {"category title": "category url"},
+    "subcategory": {"subcategory title": "subcategory url"},
     "image": "image url",
     "description": "recipe description",
     "author": "author",
     "portions": "number of portions",
     "ingredients": ["ingredient1", "ingredient2", ...],    
-    "preparation": "preparation steps"
+    "preparation": {"preparation step count": "preparation step"}
 }
 ```
 
