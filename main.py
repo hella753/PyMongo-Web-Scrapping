@@ -3,6 +3,9 @@ import time
 from data_fetcher import DataFetcher
 from scraper import Scraper
 from database.list_to_json import recipes_to_json
+from database.database_config import MongoDB
+from database.list_to_json import recipes_to_json
+
 
 url = """https://kulinaria.ge/receptebi/cat/karTuli-samzareulo/"""
 start = time.perf_counter()
@@ -10,12 +13,13 @@ start = time.perf_counter()
 
 async def main():
     fetcher = DataFetcher()
+    my_db = MongoDB()
+
     html = fetcher.fetch_data(url)
     scraper = Scraper(html, fetcher)
     await scraper.get_recipe_info()
-    data = scraper.get_recipes()
-    json_data = recipes_to_json(data)
-    print(json_data)
+
+    my_db.insert_many("recipies", scraper.get_recipes())
 
 
 if __name__ == "__main__":

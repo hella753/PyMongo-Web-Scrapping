@@ -12,15 +12,6 @@ class MongoDB:
         self.client = MongoClient(uri)
         self.db = self.client[database_name]
 
-    def create_collection(self, collection_name):
-        """
-        Create a new collection in the database.
-
-        :param collection_name: The name of the collection to create.
-        :return: The collection object.
-        """
-        return self.db.create_collection(collection_name)
-
     def get_collection(self, collection_name):
         """
         Get a collection by name.
