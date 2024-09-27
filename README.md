@@ -1,38 +1,45 @@
 # PyMongo & Web Scrapping
 
 ## Description
-This project uses BeautifulSoup web scraping to extract data from a culinary website and then stores it in a
+This project uses BeautifulSoup for web scraping to extract data from a culinary website and then stores it in a
 MongoDB database using PyMongo. The data is a list of georgian cuisine recipes with their information. It
 is easily accessible and can be used for further analysis. <br>
 
-Database name: `georgian_cuisine` <br>
-collection name: `recipes` <br>
+Database name: `mydatabase` <br>
+Collection name: `recipies` <br>
 Document structure: <br>
 ```
 {
     "_id": id,
-    "Title": "recipe title",
-    "Link": "recipe url",
-    "Category": "category",
-    "Subcategory": "subcategory",
-    "Image": "image url",
-    "Description": "recipe description",
-    "Author": "author",
-    "Portions": "number of portions",
-    "Ingredients": ["ingredient1", "ingredient2", ...],    
+    "title": "recipe title",
+    "link": "recipe url",
+    "category": "category",
+    "subcategory": "subcategory",
+    "image": "image url",
+    "description": "recipe description",
+    "author": "author",
+    "portions": "number of portions",
+    "ingredients": ["ingredient1", "ingredient2", ...],    
     "preparation": "preparation steps"
 }
 ```
 
 ## Components
-* **Database**: Handles the MongoDB database operations like initializing database, inserting and retrieving data. 
+* **MongoDB**: Handles the MongoDB database CRUD operations.
 * **DataFetcher**: Handles usual and asynchronous data fetching from the website.
 * **Recipe**: Recipe Object to store the recipe information.
 * **Scraper**: Handles the web scraping operations with bs4.
+* **RecipeQueries**: Handles the database queries for data analysis.
 
 
 ## **Features** ##
-coming soon
+Application provides the following functionalities:
+* **Web Scraping**: `get_recipe_info` with the help of other methods in the scraper class extracts the recipe information from the website.
+* **Database Operations**: `insert_one` and `insert_many` in `database_config.py` stores the extracted data in the MongoDB database.
+`find_one` and `find_many` finds the documents in the collection. `get_collection` gets the collection by the name.
+* **Data Analysis**: `avg_ingredients`, `avg_stages`, `most_beneficial_recipe` and `top_author` provides some basic analysis on the stored data for the provided tasks.
+* **Asynchronous Data Fetching**: `fetch_async` and `fetch_async_all` fetches the data asynchronously using aiohttp.
+
 
 ### Provided Tasks
 **Web-Scraping Tasks:**
@@ -41,17 +48,17 @@ coming soon
 - [x] Extract the category
 - [x] Extract the subcategory
 - [x] Extract the image
-- [ ] Extract the description
-- [ ] Extract the author
-- [ ] Extract the portions
-- [ ] Extract the ingredients
-- [ ] Extract the preparation steps
+- [x] Extract the description
+- [x] Extract the author
+- [x] Extract the portions
+- [x] Extract the ingredients
+- [x] Extract the preparation steps
 
 **Database Tasks:**
-- [ ] Print average of the number of ingredients in all recipes
-- [ ] Print average of the number of preparation steps in all recipes
-- [ ] Print maximum number of portions of a recipe. (recipe title, recipe url)
-- [ ] Print author with the most recipes
+- [x] Print average of the number of ingredients in all recipes
+- [x] Print average of the number of preparation steps in all recipes
+- [x] Print maximum number of portions of a recipe. (recipe title, recipe url)
+- [x] Print author with the most recipes
 
 
 ## Usage
