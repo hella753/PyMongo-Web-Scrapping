@@ -37,8 +37,11 @@ class DataFetcher:
         :param url: str: URL of the website to fetch data from
         :return: str: response from the website
         """
-        ssl_context = ssl.create_default_context(cafile=certifi.where())
-        async with session.get(url, ssl=ssl_context) as response:
+        # ssl_context = ssl.create_default_context(cafile=certifi.where())
+        # uncomment if you have SSL error
+        # async with session.get(url, ssl=ssl_context) as response:
+        # uncomment if you have SSL error and comment out the next line
+        async with session.get(url) as response:
             return await response.text()
 
     async def fetch_async_all(self, urls: List[str]) -> List[str]:
